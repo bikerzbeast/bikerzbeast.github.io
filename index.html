@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>'t Putke - Diner in Antwerp</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+        description="Bikrez Beast | KTM Biker | KTM Rider. Being a rider. I am from Nepal🇳🇵. Own a KTM Duke 250 (2018) 🏁. The Helmet that i use are LS2 Vector/ AGV K5-S Marble. The device that i use are Samsung Note 9 / iPhone 6s+ / Dji Osmo+" " />
+    <link rel=" stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
+    </script>
+
+    <script src="https://www.sowecms.com/demos/statics/prism.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://www.sowecms.com/demos/statics/prism.css">
+
+    <style>
+        section {
+            padding: 60px 0;
+        }
+
+        .bg-primary-2 {
+            background-color: #3779B3;
+        }
+
+        .bg-secondary-2 {
+            background: #cbdbe8;
+        }
+
+        .text-underline {
+            text-decoration: underline;
+        }
+
+        .text-bold {
+            font-weight: 700;
+        }
+
+        .text-italic {
+            font-style: italic;
+        }
+
+        .text-small {
+            font-size: 0.8em;
+        }
+
+        .flex-grow-1 {
+            flex-grow: 1;
+        }
+
+        #btn-top {
+            position: fixed;
+            z-index: 999;
+            bottom: 1em;
+            top: auto;
+            left: auto;
+            right: 1em;
+            margin-left: -1.9rem;
+            opacity: .66;
+            display: none;
+        }
+
+        .instagram_feed {
+            overflow: hidden;
+        }
+
+        #jsonHere {
+            max-height: 60vh;
+            overflow: auto;
+        }
+
+        .instagram_gallery a img {
+            width: calc(100% / 3 - (8px * 2));
+            height: 100%;
+            -webkit-box-flex: 1;
+            flex: 1 0 auto;
+            margin: 8px;
+            position: relative;
+            box-shadow: 0px 24px 43px 0px rgba(173, 179, 192, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .instagram_gallery a img:hover {
+            cursor: pointer;
+            transform: translateY(-5px);
+            filter: blur(1px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.16);
+        }
+
+        @media only screen and (max-width: 767.98px) {
+            .instagram_gallery a img {
+                width: calc(100% / 2 - (8px * 2));
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .instagram_gallery a img {
+                width: calc(100% / 1 - (8px * 2));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section id="examples">
+        <div class="container">
+            <div class="instaFeedWrapper" id="example1" role="tabpanel" aria-labelledby="example1-tab">
+                <div id="instagram-feed1" class="instagram_feed"></div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <script src="dist/InstagramFeed.min.js"></script>
+    <script>
+        (function () {
+            new InstagramFeed({
+                'username': 'bikerzbeast',
+                'container': document.getElementById("instagram-feed1"),
+                'display_profile': true,
+                'display_biography': true,
+                'display_gallery': true,
+                'callback': null,
+                'styling': true,
+                'items': 12,
+                'items_per_row': 3,
+                'margin': 1,
+                'lazy_load': true,
+                'on_error': console.error
+            });
+
+            new InstagramFeed({
+                'username': 'github',
+                'container': document.getElementById("instagram-feed2"),
+                'display_profile': false,
+                'display_biography': false,
+                'display_gallery': true,
+                'callback': null,
+                'styling': true,
+                'items': 8,
+                'items_per_row': 4,
+                'margin': 1
+            });
+            new InstagramFeed({
+                'username': 'zara',
+                'container': document.getElementById("instagram-feed3"),
+                'display_profile': false,
+                'display_biography': false,
+                'display_gallery': true,
+                'callback': null,
+                'styling': true,
+                'items': 12,
+                'items_per_row': 6,
+                'margin': 0.25
+            });
+
+            new InstagramFeed({
+                'username': 'bikerzbeast',
+                'callback': function (data) {
+                    document.getElementById("jsonHere").innerHTML = JSON.stringify(data, null, 2);
+                }
+            });
+        })();
+        (function ($) {
+            // Show back to top button if distance from top > 0
+            $(window).scroll(function () {
+                var viewportTop = $(window).scrollTop() + $(window).height();
+
+                if ($(window).scrollTop() > 10) {
+                    $('#btn-top').addClass('d-block');
+                    $('#btn-top').removeClass('d-none');
+                } else {
+                    $('#btn-top').addClass('d-none');
+                    $('#btn-top').removeClass('d-block');
+                }
+            });
+        })(jQuery);
+    </script>
+</body>
+
+</html>
